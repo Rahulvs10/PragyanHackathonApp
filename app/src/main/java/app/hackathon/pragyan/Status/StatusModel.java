@@ -1,7 +1,6 @@
 package app.hackathon.pragyan.Status;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -16,9 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -27,7 +24,7 @@ public class StatusModel {
     RequestQueue queue;
     Model model;
 
-    StatusModel(Context context, Model model) {
+    StatusModel(Context context,Model model) {
         this.context = context;
         this.model = model;
         //loginPresenter = new LoginPresenter(context);
@@ -43,8 +40,9 @@ public class StatusModel {
                         try {
                             JSONObject obj = new JSONObject(response);
                             if (obj.getInt("status_code") == 200) {
-                                if(obj.getJSONArray("message").length()==0) model.addCart();
-                                else if(obj.getJSONArray("message").getJSONObject(0).getInt("Collected") == 0)   model.pending();
+                                if (obj.getJSONArray("message").length() == 0) model.addCart();
+                                else if (obj.getJSONArray("message").getJSONObject(0).getInt("Collected") == 0)
+                                    model.pending(obj.getJSONArray("message"));
                                 else model.getFeedBack(obj.getJSONArray("message"));
                             } else {
                                 toastPrinter(context, obj.getJSONObject("message").getString("Message"), 2);
@@ -87,8 +85,10 @@ public class StatusModel {
 
     public interface Model {
         void addCart();
+
         void getFeedBack(JSONArray array);
-        void pending();
+
+        void pending(JSONArray array);
     }
 
 }

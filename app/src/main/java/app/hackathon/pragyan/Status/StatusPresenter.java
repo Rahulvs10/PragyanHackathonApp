@@ -2,15 +2,12 @@ package app.hackathon.pragyan.Status;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.util.Log;
 
 import org.json.JSONArray;
 
 import app.hackathon.pragyan.Feedback.FeedbackView;
 import app.hackathon.pragyan.OrderView.OrderView;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class StatusPresenter implements StatusModel.Model {
     Context context;
@@ -47,7 +44,12 @@ public class StatusPresenter implements StatusModel.Model {
     }
 
     @Override
-    public void pending() {
-        Log.i("Pending", "Still pendiiiiiiiiiiiiing");
+    public void pending(JSONArray array) {
+
+        Log.i("Pending","Pending da punda");
+
+        Intent i = new Intent(context, StatusActivity.class);
+        i.putExtra("order_list", array.toString());
+        context.startActivity(i);
     }
 }

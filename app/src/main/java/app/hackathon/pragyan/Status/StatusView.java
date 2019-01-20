@@ -1,12 +1,11 @@
 package app.hackathon.pragyan.Status;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import app.hackathon.pragyan.R;
 
+import android.content.SharedPreferences;
+import android.os.Bundle;
 
 public class StatusView extends AppCompatActivity {
 
@@ -25,4 +24,6 @@ public class StatusView extends AppCompatActivity {
         String token = settings.getString("token", "");
         statusPresenter.checkData(userId, token);
     }
+
+
 }

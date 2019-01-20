@@ -8,14 +8,6 @@
     android:layout_margin="5dp"
     tools:context=".Status.StatusView">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Dashboard"
-        android:textSize="30sp"
-         />
 
     <TextView
         android:id="@+id/textView7"
@@ -28,23 +20,12 @@
          />
 
     <ListView
-        android:id="@+id/listvie"
+        android:id="@+id/listview"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
-        android:layout_width="389dp"
-        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
          />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_marginTop="40dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="Order"
-       />
-
 
 </LinearLayout>
